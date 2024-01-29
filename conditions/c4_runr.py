@@ -42,11 +42,11 @@ def read_port(args):
     port.write(b'g')
     data = port.readline()
     tag, reader = extract_identifiers(data)
-
+    print(tag, reader)
 
     if tag is not None and tag != '' and not np.isin(reader, readers_correct):
         tag_dict = {'object': tag, 'location': reader}
-
+        print(tag, reader)
         reader_current = reader
 
         if reader == 'reader0':
@@ -159,12 +159,12 @@ def cond_1():
     #print('start of condition loop, object correct', object_correct)
 
     # Define the interval (in seconds) for the emotion assessment (5 minutes in the experiment case)
-    interval1 = constants.t_emotion * 60  # 5 minutes * 60 seconds/minutes for emotion assessment
+    interval1 =  constants.t_emotion  * 60  # 5 minutes * 60 seconds/minutes for emotion assessment
     interval2 = constants.t_additional * 60  # for additional hint
 
     current_time = time.time()
 
-    reader_c = reader_current
+
 
     #  additional motivation after placement gap
 
@@ -193,14 +193,7 @@ def cond_1():
 
         emotion_no += 1
         print('The emotion assessment is number: ', emotion_no)
-        last_mtime = time.time() #reset the additional message time so it's not always given after emotion assessment
 
-        #reset performance and placement after an emotion assessment
-        print('during round', emotion_no, 'the placement number was', placement_no, 'the performance score was', x_perf/placement_no) ## Save this for each emotion assessment
-        np.save('performance_{0}_{1}_{2}'.format(constants.participant_no, constants.condition, emotion_no),  x_perf/placement_no)
-        np.save('placement_no_{0}_{1}_{2}'.format(constants.participant_no, constants.condition, emotion_no), placement_no)
-        x_perf = 0
-        placement_no = 0
         # END OF EMOTION ASSESSMENT
 
     # Object identification
@@ -209,8 +202,8 @@ def cond_1():
     if object_correct is not None and object_correct != '' and object_correct != object_past:
 
         object_location_corr = object_correct + ' ' + location_correct
-        print('object_location_correct', object_location_corr)
 
+        #print('Current object: ', object_correct, 'Correct location is: ', object_location_corr)
 
         #  speak text with animation for object identification
 
@@ -267,10 +260,7 @@ def cond_1():
             x_perf += 1
 
             behavior_index = np.append(behavior_index, behavior)
-            if reader_c != 'reader0':
-                readers_correct = np.append(readers_correct, reader_c)
-
-            print('the currently correctly placed readers are:', readers_correct)
+            readers_correct = np.append(readers_correct, reader_current)
 
             constants.memory_performance = np.append(constants.memory_performance, perf_score)
 
@@ -447,11 +437,11 @@ def cond_1():
             object_current = ''
 
         current_time = time.time()
-        if current_time > experiment_end_time or len(readers_correct) == constants.items_no:
+        if current_time > experiment_end_time or len(readers_correct) == 16:
             np.save('behaviors', behavior_index)
             np.save('placement_no', placement_no)
             np.save('performance', constants.memory_performance)
-            np.save('placements', constants.memory_placements)
+            np.save('placements', constants.memory_memory_placements)
             np.save('hints', hint_memory)
             np.save('motivational', motivation_memory)
             file_path = 'occurrence_memory'
@@ -459,23 +449,6 @@ def cond_1():
                 json.dump(constants.memory_occurrence, json_file)
             file_path = 'association_memory'
             with open(file_path, 'w') as json_file:
-                json.dump(constants.memory_association, json_file)
-
-            # Save data with dynamic file paths
-            np.save('behaviors_{0}_{1}'.format(constants.participant_no, constants.condition), behavior_index)
-            np.save('placement_no_{0}_{1}'.format(constants.participant_no, constants.condition), placement_no)
-            np.save('performance_{0}_{1}'.format(constants.participant_no, constants.condition), constants.memory_performance)
-            np.save('placements_{0}_{1}'.format(constants.participant_no, constants.condition), constants.memory_placements)
-            np.save('hints_{0}_{1}'.format(constants.participant_no, constants.condition), hint_memory)
-            np.save('motivational_{0}_{1}'.format(constants.participant_no, constants.condition), motivation_memory)
-
-            # Save data in JSON format
-            file_path_occurrence = 'occurrence_memory_{0}_{1}.json'.format(constants.participant_no, constants.condition)
-            with open(file_path_occurrence, 'w') as json_file:
-                json.dump(constants.memory_occurrence, json_file)
-
-            file_path_association = 'association_memory_{0}_{1}.json'.format(constants.participant_no, constants.condition)
-            with open(file_path_association, 'w') as json_file:
                 json.dump(constants.memory_association, json_file)
 
             #  say end of experiment text
@@ -637,10 +610,10 @@ def personalized_hint(placement_memory, correct_placement, associative_memory, o
                 hintn = random.randrange(5)
                 hint = robot_text.robot_con40[hintn]
 
-            if hintn == 1 or hintn == 3:
+            if hintn == 1:
                 robot_speech2([hint], object_placed)
 
-            elif hintn == 0 or hintn == 2:
+            elif hintn == 0 or hintn == 2 or hintn ==3:
                 robot_speech2([hint])
             elif hintn == 4:
                 hint_counter += 1
@@ -651,9 +624,9 @@ def personalized_hint(placement_memory, correct_placement, associative_memory, o
                     hintn = random.randrange(0, 4)
                     hint = robot_text.robot_con40[hintn]
 
-                if hintn == 1 or hintn == 3:
+                if hintn == 1:
                     robot_speech2([hint], object_placed)
-                elif hintn == 0 or hintn == 2:
+                elif hintn == 0 or hintn == 2 or hintn == 3:
                     robot_speech2([hint])
 
         hint_memory = np.append(hint_memory, placement_no)
@@ -696,19 +669,10 @@ def personalized_hint(placement_memory, correct_placement, associative_memory, o
                     robot_speech2([hint], object_placed)
                 elif hintn == 0 or hintn == 2 or hintn == 3:
                     robot_speech2([hint])
-    else:
-        hintn = random.randrange(20)  # random integer from 0 to 19
-        hint = robot_text.robot_con20[hintn]
-        while hint == hint_memory[-1]:  # avoid same hint being used twice
-            hintn = random.randrange(20)
-            hint = robot_text.robot_con20[hintn]
-        speech_service.setParameter("speed", speech_rate_base)
-        robot_speech([hint])
 
-
-    hint_memory = np.append(hint_memory, placement_no)
-    hint_memory = np.append(hint_memory, hint)
-    print('The hints given so far: ', hint_memory)
+        hint_memory = np.append(hint_memory, placement_no)
+        hint_memory = np.append(hint_memory, hint)
+        print('The hints given so far: ', hint_memory)
 
 
 if __name__ == "__main__":
@@ -747,10 +711,10 @@ if __name__ == "__main__":
     tag_time = time.time()
     experiment_start_time = time.time()
     last_mtime = time.time()
-    experiment_end_time = experiment_start_time + constants.experiment_time * 60  # 30 minutes * 60 seconds/min
-    emotion_no = 0  # needs to start in 0!
-    behavior = 0  # initialization that is not 1 or 2, start behavior e.g. 0
-    joy = 0  # needs to start in 0!
+    experiment_end_time = experiment_start_time + 30 * 60  # 30 minutes * 60 seconds/min
+    emotion_no = 0
+    behavior = 1  # initialization that is not 1 or 2
+    joy = 0
     behavior_index = []
     # scores for percentage X of extra hint
     placement_no = 0

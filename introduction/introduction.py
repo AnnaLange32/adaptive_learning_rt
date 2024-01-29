@@ -35,5 +35,27 @@ speak_move_service = session.service("ALSpeakingMovement")
 posture_service.goToPosture("StandInit", 0.5)
 speech_service.setParameter("speed", speech_rate)
 
+
+## Start active tracking
+
+behavior_mng_service.runBehavior('p50_study1-5ba9db/basic_awareness_ON', _async=True)
+
 # Speak the text with animation
+
 robot_speech(robot_text.robot_intro)
+
+## Start examples
+
+# Speak the text with animation
+time.sleep(1)
+robot_speech(robot_text.robot_ex1)
+
+
+# run through emotion assessment
+joy, bored, frust = emotion_assessment()
+
+time.sleep(1)
+
+robot_speech(robot_text.robot_ex2)
+posture_service.goToPosture("StandInit", 0.5)
+close_running_behavs()

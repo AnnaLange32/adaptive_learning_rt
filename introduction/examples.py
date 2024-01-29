@@ -22,7 +22,7 @@ close_running_behavs()
 # set speech rate
 speech_rate_base = 89
 speech_rate_swahili = 75
-pitch_shift = 1.15
+
 
 # Connect to the robot
 session = qi.Session()
@@ -40,7 +40,7 @@ memory_service = session.service("ALMemory")
 animated_speech = session.service("ALAnimatedSpeech") #says a text and animates it with movements
 speak_move_service = session.service("ALSpeakingMovement")
 speech_service.setParameter("speed", speech_rate_base)
-speech_service.setParameter("pitchShift", pitch_shift)
+
 lang = speech_service.getAvailableLanguages()
 print "Available languages: " + str(lang)
 #speech_service.setLanguage()
@@ -54,5 +54,5 @@ joy, bored, frust = emotion_assessment()
 
 time.sleep(1)
 
-robot_speech(robot_text.robote_ex2)
+robot_speech(robot_text.robot_ex2)
 posture_service.goToPosture("StandInit", 0.5)

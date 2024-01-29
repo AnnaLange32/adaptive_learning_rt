@@ -1,7 +1,6 @@
 ''' DATABASE: Pepper speech blocks'''
 
 
-
 # INTRODUCTION
 
 intro_text1 = ("^mode(cotextual) Hi, ich bin Pepper und ich werde heute dein Lehrer sein.")
@@ -24,12 +23,12 @@ intro_beh4 = 'p50_study1-5ba9db/behavior 1'
 intro_t41 = 2
 intro_t42 = 2.5
 
-intro_text5 = ("^mode(disabled) Deine Aufgabe wird es sein, diese Gegenstaende an bestimmten Stellen hier im Raum zu positionieren.")
-intro_beh5 = ''
+intro_text5 = ("^mode(disabled) Deine Aufgabe wird es sein, die kleinen Gegenstaende dort, auf dem kleinen, weissen, Tisch, an bestimmten Stellen hier im Raum zu positionieren.")
+intro_beh5 = 'p50_study1-5ba9db/behavior 4'
 intro_t51 = 0
 intro_t52 = 2
 
-intro_text6 = ("^mode(contextual) Moegliche Stellen erkennst du an kleinen, weissen Boxen,")
+intro_text6 = ("^mode(contextual) Moegliche Stellen erkennst du an quadratischen, weissen Boxen,")
 intro_beh6 = ''
 intro_t61 = 0
 intro_t62 = 0
@@ -39,7 +38,7 @@ intro_beh7 = 'p50_study1-5ba9db/behavior 2'
 intro_t71 = 2.5
 intro_t72 = 5
 
-intro_text8 = ("^mode(contextual)  Wie du siehst, sind diese im ganzen Raum verteilt. Bitte stelle ^mode(disabled)  Objekte auch wirklich immer nur auf diese Boxen.  ^mode(contextual) Alles andere waere keine richtige Platzierung. ^mode(disabled) Ausserdem, kann ich dir sonst kein Feedback geben.")
+intro_text8 = ("^mode(contextual)  Wie du siehst, sind diese im ganzen Raum verteilt. Bitte stelle ^mode(disabled)  die Gegenstaende auch wirklich immer nur auf diese Boxen.  ^mode(contextual) Alles andere waere keine richtige Platzierung. ^mode(disabled) Ausserdem, kann ich dir sonst kein Feedback geben.")
 intro_beh8 = ''
 intro_t81= 0
 intro_t82 = 2
@@ -54,7 +53,8 @@ intro_beh10 = 'p50_study1-5ba9db/behavior 3'
 intro_t101= 2
 intro_t102 = 4
 
-intro_text11 = (" ^mode(disabled) Damit es aber nicht zu einfach fuer dich ist, werde ich ^mode(contextual) dir in einer Fremdsprache sagen, wo du die Gegenstaende hinstellen musst. ^mode(contextual) Und zwar in Swahili - einer Sprache, die in vielen Laendern Ost- und Zentralafrikas, ^mode(disabled) wie Kenia und Tansania, gesprochen wird.")
+intro_text11 = (" ^mode(disabled) Damit es aber nicht zu einfach fuer dich ist, werde ich ^mode(contextual) dir in einer Fremdsprache sagen, wo du die Gegenstaende hinstellen musst. ^mode(contextual) Und zwar in Swahili - einer Sprache, die in vielen Laendern Ost- und Zentralafrikas, ^mode(disabled) wie Kenia und, Tansania, gesprochen wird.")
+intro_text11 = (" ^mode(disabled) Damit es aber nicht zu einfach fuer dich ist, werde ich ^mode(contextual) dir in einer Fremdsprache sagen, wo du die Gegenstaende hinstellen musst. ^mode(contextual) Und zwar in Swahili - einer Sprache, die in vielen Laendern Ost- und Zentralafrikas, ^mode(disabled) wie Kenia und, Tansania, gesprochen wird.")
 intro_beh11 = ''
 intro_t111= 0
 intro_t112 = 2
@@ -86,12 +86,12 @@ robot_intro = [
 # EXAMPLES
 
 
-ex_text1 = ("^mode(cotextual) \\emph=2\\ Das, zum Beispiel ist eine Flasche. Auf Swahili: tschupa.")
+ex_text1 = ("^mode(cotextual) \\emph=2\\ Dort, auf dem kleinen, Tisch, steht zum Beispiel eine Flasche. Auf Swahili: tschupa.")
 ex_beh1 = 'p50_study1-5ba9db/behavior 4'
 ex_t11 = 3
 ex_t12 = 1
 
-ex_text2 = ("^mode(contextual) Wenn du jetzt im Spiel die Flasche anheben wuerdest,  ^mode(disabled) wuerde ich dir sagen")
+ex_text2 = ("^mode(contextual) Wenn du jetzt im Spiel die Flasche irgendwo platzieren wollen wuerdest, muesstest du sie erst einmal auf die weisse Box dort auf dem kleinen, Tisch, stellen. Ich ^mode(disabled) wuerde dir dann sagen")
 ex_beh2 = ''
 ex_t21 = 0
 ex_t22 = 1
@@ -136,7 +136,7 @@ ex_beh10 = ''
 ex_t101 = 0
 ex_t102 = 1
 
-ex_text11 = ("^mode(disabled) Nach einer falschen Plazierung, kannst du natuerlich weiter ausprobieren. ^mode(contextual) Bitte bewege immer nur einen Gegenstand nach dem anderen.")
+ex_text11 = ("^mode(disabled) Nach einer falschen Plazierung, kannst du natuerlich weiter ausprobieren. Du kannst aber auch erstmal einen anderen Gegenstand waehlen. Denk daran, diesen erst einmal auf die Startbox zu stellen. ^mode(contextual) Bitte bewege aber immer nur einen Gegenstand nach dem anderen.")
 ex_beh11 = ''
 ex_t111 = 0
 ex_t112 = 1
@@ -201,14 +201,13 @@ robot_ex1 = [
 ]
 
 robot_ex2 = [[ex_t181, ex_text18, ex_beh18, ex_t182]]
-
 # CONDITION 1
 
 # weiter geht's part
 
 con11_text1 = ("Weiter geht's!")
 con11_beh1 = 'p50_study1-5ba9db/behavior 10'
-con11_t11 = 2
+con11_t11 = 1
 con11_t12 = 1
 
 con11_text2 = ("Ich kann dir nur Rueckmeldung geben, wenn du eine Platzierung vornimmst.")
@@ -237,13 +236,13 @@ robot_con13 = [[con13_t11, con13_text1, con13_beh1, con13_t12]]
 
 con14_text1 = ('Das ist:')
 con14_beh1 = 'p50_study1-5ba9db/behavior 8'
-con14_t11 = 1
-con14_t12 = 0.5
+con14_t11 = 0.5
+con14_t12 = 0.2
 
 con15_text1 = ('Bitte platziere das Objekt an der folgenden Stelle: ')
 con15_beh1 = ''
-con15_t11 = 1
-con15_t12 = 1
+con15_t11 = 0.5
+con15_t12 = 0
 
 robot_con14 = [[con14_t11, con14_text1, con14_beh1, con14_t12]]
 robot_con15 = [[con15_t11, con15_text1, con15_beh1, con15_t12]]
@@ -252,12 +251,12 @@ robot_con15 = [[con15_t11, con15_text1, con15_beh1, con15_t12]]
 
 con16_text1 = ('^mode(cotextual) Diese Platzierung ist: ')
 con16_beh1 = ''
-con16_t11 = 1
+con16_t11 = 0.2
 con16_t12 = 0.5
 
 con17_text1 = ('^mode(cotextual) Super! Das ist korrekt! Du kannst nun mit einem anderen Objekt weitermachen.')
 con17_beh1 = 'p50_study1-5ba9db/behavior 9'
-con17_t11 = 5
+con17_t11 = 4
 con17_t12 = 0
 
 robot_con16 = [[con16_t11, con16_text1, con16_beh1, con16_t12]]
@@ -265,7 +264,7 @@ robot_con17 = [[con17_t11, con17_text1, con17_beh1, con17_t12]]
 
 con18_text1 = ('^mode(cotextual) Diese Platzierung ist: ')
 con18_beh1 = ''
-con18_t11 = 1
+con18_t11 = 0.2
 con18_t12 = 0.5
 
 con19_text1 = ('^mode(cotextual) Aber das ist falsch. Die korrekte Platzierung lautet:')
@@ -276,104 +275,104 @@ con19_t12 = 0.5
 robot_con18 = [[con18_t11, con18_text1, con18_beh1, con18_t12]]
 robot_con19 = [[con19_t11, con19_text1, con19_beh1, con19_t12]]
 
-# Adittional random hints
+# Additional random hints
 
-con21_text1 = ('Denk noch einmal nach. Das letzte Wort ist immer der Ort, wo das Objekt hingehoert. Versuche, strategisch an die Aufgabe heranzugehen.')
+con21_text1 = ('Wie koenntest du die Saetze in kleinere Teile zerlegen? Vielleicht macht es die Aufgabe einfacher, wenn du das mal versuchst.')
 con21_beh1 = ''
 con21_t11 = 0
 con21_t12 = 0.5
 
-con22_text1 = ('Ueberlege, welche Strategien du verwenden koenntest, um die Gegenstaende im Raum zu platzieren.')
+con22_text1 = ('Ueberleg doch mal: Wie koennte man die einzelnen Woerter in eine logische Struktur bringen?')
 con22_beh1 = ''
 con22_t11 = 0
 con22_t12 = 0.5
 
-con23_text1 = ('Merke dir meine Reaktionen. Auf diese Weise kannst du die Bedeutung der verschiedenen Orte herausfinden.')
+con23_text1 = ('Was denkst du sind die wichtigsten Woerter aus meiner vorherigen Aussage um die Aufgabe zu loesen? ueberlege, auf welche du dich nun besonders gut fokussieren solltest.')
 con23_beh1 = ''
 con23_t11 = 0
 con23_t12 = 0.5
 
-con24_text1 = ('Versuche, einen strategischen Plan zur Loesung des Raetsels zu erarbeiten!')
+con24_text1 = ('Betrachte die Beziehungen zwischen den einzelnen Woertern. Wie kannst du sie kategorisieren und verbinden, um eine logische Ordnung zu schaffen?')
 con24_beh1 = ''
 con24_t11 = 0
 con24_t12 = 0.5
 
-con25_text1 = ('Was hat dich dazu gebracht, diese Position zu waehlen? Versuche, deine Handlungen zu reflektieren.')
+con25_text1 = ('Schau dir die Beziehungen zwischen den einzelnen Woertern an. Erkennst du eine logische Struktur oder ein Muster?')
 con25_beh1 = ''
 con25_t11 = 0
 con25_t12 = 0.5
 
-con26_text1 = ('Ich weiss, es ist nicht einfach, aber versuche, die Saetze, die ich sage, zu entschluesseln. Sie folgen einer klaren Struktur!')
+con26_text1 = ('Denke ueber Beispiele nach, um das bisher Gelernte zu verknuepfen. Wie wuerdest du beispielsweise im Englischunterricht in der Schule vorgehen, um dir Vokabeln besser zu behalten?')
 con26_beh1 = ''
 con26_t11 = 0
 con26_t12 = 0.5
 
-con27_text1 = ('Kombiniere diese Informationen mit dem, was du bereits weisst!')
+con27_text1 = ('Hast du vielleicht schon einmal eine aehnliche Aufgabe in anderen Lernsituationen oder im Alltag gemacht? Probiere mal, ob du bereits vorhandenes Wissen auf die aktuelle Aufgabe anwenden kannst.')
 con27_beh1 = ''
 con27_t11 = 0
 con27_t12 = 0.5
 
-con28_text1 = ('Verfolgst du einen strategischen Plan? Versuche, ueber deine Strategie zur Loesung dieser Aufgabe nachzudenken!')
+con28_text1 = ('Welche Woerter denkst du sind entscheidende Schluesselwoerter, um diese Aufgabe zu loesen? Achte genau auf meine Aussagen.')
 con28_beh1 = ''
 con28_t11 = 0
 con28_t12 = 0.5
 
-con29_text1 = ('Erinnere dich an aehnliche Aufgaben aus deiner Vergangenheit, wie zum Beispiel einen Escape-Room. Welche Herangehensweise hat sich dort bewaehrt? Vielleicht hilft sie dir hier auch.')
+con29_text1 = ('Erkennst du Unterschiede oder Gemeinsamkeiten zu anderen Sprachen, die schon kennst oder gelernt hast?')
 con29_beh1 = ''
 con29_t11 = 0
 con29_t12 = 0.5
 
-con210_text1 = ('Kannst du Muster oder Fehler in deinem Vorgehen erkennen, die sich wiederholen koennten? Versuche deine bisherigen Handlungen immer zu beachten. ')
+con210_text1 = ('Kannst du diese Woerter irgendwie mit deinen eigenen Erfahrungen verknuepfen? Vielleicht koenntest du versuchen, Eselsbruecken zu bauen, um sie dir besser zu merken.')
 con210_beh1 = ''
 con210_t11 = 0
 con210_t12 = 0.5
 
-con211_text1 = ('Achte auf die Struktur der Saetze, die ich verwende, um dir Hinweise zu geben. Sie hilft dir, die richtige Position fuer jeden Gegenstand zu finden. ')
+con211_text1 = ('Ueberlege dir, welche Woerter du noch nicht gut verstanden hast. ')
 con211_beh1 = ''
 con211_t11 = 0
 con211_t12 = 0.5
 
-con212_text1 = ('Denk an diese Aufgabe wie an ein Strategiespiel. Welchen Schritte solltest du als Naechstes machen, um die richtige Loesung zu finden?')
+con212_text1 = ('Wie kannst du dir dein Verstaendnisproblem am besten erklaeren?')
 con212_beh1 = ''
 con212_t11 = 0
 con212_t12 = 0.5
 
-con213_text1 = ('Hast du bemerkt, dass jede Reaktion von mir ein Puzzleteil ist? Versuche, die Teile zusammenzusetzen, um das Gesamtbild zu sehen.')
+con213_text1 = ('Gibt es noch Woerter, deren Bedeutung dir bisher nicht bekannt sind oder die noch nicht ganz klar fuer dich sind?')
 con213_beh1 = ''
 con213_t11 = 0
 con213_t12 = 0.5
 
-con214_text1 = ('Verbinde das, was du von mir hoerst, mit deinem Wissen, um die Gegenstaende effizienter zu platzieren.')
+con214_text1 = ('Gibt es noch Woerter, deren Bedeutung dir bisher nicht bekannt sind oder die noch nicht ganz klar fuer dich sind?')
 con214_beh1 = ''
 con214_t11 = 0
 con214_t12 = 0.5
 
-con215_text1 = ('Denke daran, dass in jeder Antwort wertvolle Informationen stecken koennten. Nutze sie sinnvoll!')
+con215_text1 = ('Was hat dich dazu gebracht, den Gegenstand dorthin zu stellen? Versuch mal, deine Schritte zu ueberdenken und zu hinterfragen.')
 con215_beh1 = ''
 con215_t11 = 0
 con215_t12 = 0.5
 
-con216_text1 = ('Achte auf die Details in den Saetzen, die dir Hinweise geben koennten, um die Gegenstaende korrekt zu platzieren.')
+con216_text1 = ('Was koenntest du tun, um die Aufgabe besser zu bewaeltigen? ueberleg, ob du moeglicherweise deine Herangehensweise anpassen kannst.')
 con216_beh1 = ''
 con216_t11 = 0
 con216_t12 = 0.5
 
-con217_text1 = ('Welche Ziele verfolgst du bei deinen Handlungen? Versuche sie klar zu definieren.')
+con217_text1 = ('Welche Schritte hast du bisher unternommen? Denk nochmal darueber nach, welche dir besonders geholfen haben und warum das so war.')
 con217_beh1 = ''
 con217_t11 = 0
 con217_t12 = 0.5
 
-con218_text1 = ('Denkst du, dass deine aktuelle Strategie effektiv ist, um das gewuenschte Ergebnis zu erzielen? Reflektiere.')
+con218_text1 = ('Warum denkst du, ist es manchmal schwieriger, bestimmte Woerter zu verstehen als andere? Gibt es etwas, das dir dabei helfen koennte?')
 con218_beh1 = ''
 con218_t11 = 0
 con218_t12 = 0.5
 
-con219_text1 = ('Ueberlege, wie du deine Vorgehensweise anpassen koenntest, um die Aufgabe moeglicherweise effizienter zu bewaeltigen.')
+con219_text1 = ('Ueberlege, wie du deine Herangehensweise anpassen koenntest, um die Aufgabe moeglicherweise zielfuehrender zu bewaeltigen.')
 con219_beh1 = ''
 con219_t11 = 0
 con219_t12 = 0.5
 
-con220_text1 = ('Denke daran, dass meine Reaktionen wichtige Informationen enthalten, um die Gegenstaende richtig zu platzieren.')
+con220_text1 = ('Welche Informationen koennten dir helfen, die Aufgabe besser zu loesen? Denk mal darueber nach und entscheide dann, welchen Schritt du als naechstes machen koenntest.')
 con220_beh1 = ''
 con220_t11 = 0
 con220_t12 = 0.5
@@ -393,123 +392,104 @@ robot_con20 = [[con21_t11, con21_text1, con21_beh1, con21_t12], [con22_t11, con2
 # Motivational messages
 
 
-con31_text1 = ('Wenn du dranbleibst, wirst du dich fuer den Rest des Spiels gut fuehlen.') #sounds a bit odd
+con31_text1 = ('Wenn du dich konzentrierst, wird das Spiel noch interessanter fuer dich werden. Mach weiter so!') #sounds a bit odd
 con31_beh1 = ''
 con31_t11 = 0
 con31_t12 = 0.5
 
-con32_text1 = ('Wenn du nicht dranbleibst, wirst du dich fuer den Rest des Spiels nicht gut fuehlen.')
+con32_text1 = ('Bleib dran, du kannst es schaffen! Das Spiel wird noch schoener, wenn du dich noch ein wenig anstrengst.')
 con32_beh1 = ''
 con32_t11 = 0
 con32_t12 = 0.5
 
-con33_text1 = ('Wenn du dich konzentrierst, wird dieses Spiel fuer dich interessant sein.')
+con33_text1 = ('Je besser man zuhoert, desto mehr Spass macht das Spiel. Aber du machst das schon richtig gut!')
 con33_beh1 = ''
 con33_t11 = 0
 con33_t12 = 0.5
 
-con34_text1 = ('Wenn du dich nicht konzentrierst, wird dieses Spiel fuer dich nicht interessant sein.')
+con34_text1 = ('Keine Sorge! Wenn du jetzt trotz Fehler dranbleibst, dann wirst du gut vorankommen und das Spiel richtig toll meistern.')
 con34_beh1 = ''
 con34_t11 = 0
 con34_t12 = 0.5
 
-con35_text1 = ('Wenn du dich anstrengst, dann wird das Spiel angenehm sein.')
+con35_text1 = ('Du hast bisher sicher schon eine Menge Neues gelernt. Wenn du so weiter machst, wirst du ueber dich selbst hinauswachsen!')
 con35_beh1 = ''
 con35_t11 = 0
 con35_t12 = 0.5
 
-con36_text1 = ('Wenn du dich nicht anstrengst, dann wird das Spiel nicht angenehm sein. ')
+con36_text1 = ('Es ist normal, dass bei dieser Aufgabe mal Fehler passieren. Konzentriere dich weiter, dann zahlt sich das fuer dich aus!')
 con36_beh1 = ''
 con36_t11 = 0
 con36_t12 = 0.5
 
-con37_text1 = ('Wenn du gut zuhoerst, wird dir das Spiel viel Spass machen.')
+con37_text1 = ('Du schaffst das! Wenn du mir gut zuhoerst, wirst du bald von alleine weiterspielen wollen, weil du dabei so viel Neues lernen kannst.')
 con37_beh1 = ''
 con37_t11 = 0
 con37_t12 = 0.5
 
-con38_text1 = ('Wenn du nicht gut zuhoerst, wird dir das Spiel keinen Spass machen.')
+con38_text1 = ('Lass dich nicht entmutigen! Wenn du weiterhin so gut dranbleibst, kannst du durch das Spiel super dein logisches Denken trainieren.')
 con38_beh1 = ''
 con38_t11 = 0
 con38_t12 = 1
 
-con39_text1 = ('Wenn du dranbleibst, wirst du etwas gutes fuer dich selber tun.')
+con39_text1 = ('Du hast das bisher schon gut gemeistert. Bleib dran - die Inhalte des Spiels sind relevant fuer deinen Lernprozess, weil du dir wichtiges Wissen aneignest.')
 con39_beh1 = ''
 con39_t11 = 0
 con39_t12 = 0.5
 
-con310_text1 = ('Wenn du nicht dranbleibst, wirst du nicht etwas gutes fuer dich selber tun.') #komisch formuliert
+con310_text1 = ('Du hast die Aufgaben super geloest. Bleib dran, du lernst hier viel Neues.')
 con310_beh1 = ''
 con310_t11 = 0
 con310_t12 = 1
 
-con311_text1 = ('Wenn du dich konzentrierst, wird dieses Spiel gut fuer dich sein.')
+con311_text1 = ('Du hast das Thema schon gut verstanden und wenn du dranbleibst, kannst du dein Wissen noch weiter erweitern und wirst Dinge lernen, die fuer deine Zukunft nuetzlich sind.')
 con311_beh1 = ''
 con311_t11 = 0
 con311_t12 = 1
 
-con312_text1 = ('Wenn du dich nicht konzentrierst, wird dieses Spiel nicht gut fuer dich sein.')
+con312_text1 = ('Das war nicht richtig, aber das ist kein Problem. Fehler sind sinnvolle Lerngelegenheiten und du lernst in diesem Spiel Dinge, die fuer dich persoenlich nuetzlich sein koennen.')
 con312_beh1 = ''
 con312_t11 = 0
 con312_t12 = 1
 
-con313_text1 = ('Wenn du dich anstrengst, wirst du das Spiel aus persoenlicher Entscheidung weiterfuehren.')
-con313_beh1 = ''
-con313_t11 = 0
-con313_t12 = 1
 
-con314_text1 = ('Wenn du dich nicht anstrengst, wirst du das Spiel nicht aus persoenlicher Entscheidung weiterfuehren.')
-con314_beh1 = ''
-con314_t11 = 0
-con314_t12 = 1
-
-con315_text1 = ('Wenn du gut zuhoerst, wird diese Taetigkeit fuer dich selbst wichtig sein.')
-con315_beh1 = ''
-con315_t11 = 0
-con315_t12 = 1
-
-con316_text1 = ('Wenn du mir nicht gut zuhoerst, wird diese Taetigkeit fuer dich selbst nicht wichtig sein.')
-con316_beh1 = ''
-con316_t11 = 0
-con316_t12 = 1
 
 robot_con30 = [[con31_t11, con31_text1, con31_beh1, con31_t12], [con32_t11, con32_text1, con32_beh1, con32_t12],
                [con33_t11, con33_text1, con33_beh1, con33_t12], [con34_t11, con34_text1, con34_beh1, con34_t12],
                [con35_t11, con35_text1, con35_beh1, con35_t12], [con36_t11, con36_text1, con36_beh1, con36_t12],
                [con37_t11, con37_text1, con37_beh1, con37_t12], [con38_t11, con38_text1, con38_beh1, con38_t12],
                [con39_t11, con39_text1, con39_beh1, con39_t12], [con310_t11, con310_text1, con310_beh1, con310_t12],
-               [con311_t11, con311_text1, con311_beh1, con311_t12], [con312_t11, con312_text1, con312_beh1, con312_t12],
-               [con313_t11, con313_text1, con313_beh1, con313_t12], [con314_t11, con314_text1, con314_beh1, con314_t12],
-               [con315_t11, con315_text1, con315_beh1, con315_t12], [con316_t11, con316_text1, con316_beh1, con316_t12]]
+               [con311_t11, con311_text1, con311_beh1, con311_t12], [con312_t11, con312_text1, con312_beh1, con312_t12]
+               ]
 
 # Personalized hints  I NEED TO INCLUDE HINTS THAT ASSUME PART OF POSITION IS CORRECT
 
 # Location
 
-con40_text1 = ('Ueberlege dir, wie du die gehoerten Saetze sinnvoll in einzelne Teile zerlegen und diese strukturieren koenntest. Bei diesem Fehler gerade haette dir zum Beispiel besonders das letzte Wort helfen koennen.')
+con40_text1 = ('Wie koenntest du die Saetze in kleinere Teile zerlegen? Vielleicht macht es die Aufgabe einfacher, wenn du das mal versuchst. Bei diesem Fehler gerade haette dir zum Beispiel besonders das letzte Wort helfen koennen.')
 con40_text2 = ('')
 con40_t11 = 0
 con40_t12 = 0.5
 
 con41_text1 = ('Du haettest wissen koennen, dass dies nicht der richtige Ort fuer')
-con41_text2 = ('sein kann. Nutze vorherige Erfahrungen und Wissen aus anderen Lernsituationen, und versuche dieses anzuwenden, wenn du Entscheidungen triffst.')
+con41_text2 = ('sein kann. Erkennst du vielleicht Unterschiede oder Gemeinsamkeiten zu anderen Sprachen, die du schon kennst oder gelernt hast?')
 con41_t11 = 0
 con41_t12 = 0.5
 
-con42_text1 = ('Du hast richtig erkannt, dass du diesen Gegenstand ')  # This hint depens on the correct preposition and previous knowledge of the location
-con42_text2 = ('ein anderes Objekt setzen musst, aber nicht dort. Reflektiere, welche Woerter du bereits gut verstanden hast.')
-con42_t11 = 0
-con42_t12 = 0.5
+con44_text1 = ('Du hast richtig erkannt, dass du diesen Gegenstand ')  # This hint depens on the correct preposition and previous knowledge of the location
+con44_text2 = ('ein anderes Objekt setzen musst, aber nicht dort. Ueberlege dir, welche Woerter du bereits gut verstanden hast.')
+con44_t11 = 0
+con44_t12 = 0.5
 
 con43_text1 = ('Schau dir deinen letzten Schritt noch einmal genau an. Was hat dich dazu gebracht,')
-con43_text2 = ('an diesen Ort zu platzieren? Versuche, deine Handlungen zu reflektieren, du haettest naemlich wissen koennen, dass es nicht korrekt ist.')
+con43_text2 = ('dorthin zu stellen? Versuch mal, deine Schritte zu ueberdenken und zu hinterfragen. Du haettest naemlich wissen koennen, dass es nicht korrekt ist.')
 con43_t11 = 0
 con43_t12 = 0.5
 
-con44_text1 = ('Schade, aber der Fehler haette vermieden werden koennen. Achte auf meine Hinweise und ueberlege, wie sie dir helfen koennten, das Verstaendnis der Woerter zu erleichtern. Versuche, dementsprechend zu handeln.')
-con44_text2 = ('')
-con44_t11 = 0
-con44_t12 = 0.5
+con42_text1 = ('Schade, aber der Fehler haette vermieden werden koennen. Welche Informationen haetten dir helfen koennen, die Aufgabe besser zu loesen? Denk mal darueber nach und entscheide dann, welchen Schritt du als naechstes machen koenntest.')
+con42_text2 = ('')
+con42_t11 = 0
+con42_t12 = 0.5
 
 robot_con40 = [[con40_t11, con40_text1, con40_text2, con40_t12], [con41_t11, con41_text1, con41_text2, con41_t12],
                 [con42_t11, con42_text1, con42_text2, con42_t12], [con43_t11, con43_text1, con43_text2, con43_t12],
@@ -518,57 +498,58 @@ robot_con40 = [[con40_t11, con40_text1, con40_text2, con40_t12], [con41_t11, con
 
 # Preposition
 
-con50_text1 = ('Der Satz hat immer die gleiche Struktur. Achte vor allem auf das Wort in der Mitte, denn dort lag dein Fehler. Betrachte die Beziehungen zwischen den einzelnen Woertern und versuche eine logische Ordnung zu schaffen.')
+con50_text1 = ('Was denkst du sind die wichtigsten Woerter aus meiner vorherigen Aussage um die Aufgabe zu loesen? ueberlege, auf welche du dich nun besonders gut fokussieren solltest. Achte vor allem auf das Wort in der Mitte, denn dort lag dein Fehler.')
 con50_text2 = ('')
 con50_t11 = 0
 con50_t12 = 0.5
 
-con51_text1 = ('Reflektiere, welche Woerter aus dem Gehoerten du basierend auf deinem aktuellen Wissensstand als besonders wichtig und nuetzlich einschaetzt, und welche nicht. Wenn du aufmerksam zugehoert haettest, haettest du wissen koennen, dass dies nicht der richtige Ort fuer ')
+con51_text1 = ('Welche Woerter denkst du sind entscheidende Schluesselwoerter, um diese Aufgabe zu loesen? Achte genau auf meine Aussagen. Wenn du aufmerksam zugehoert haettest, haettest du naemlich wissen koennen, dass dies nicht der richtige Ort  fuer ')
 con51_text2 = ('sein kann')
 con51_t11 = 0
 con51_t12 = 0.5
 
-con52_text1 = ('Wie du hoeren kannst, stimmt nur ein kleiner Teil des Satzes nicht. Ueberlege, ob du auf Basis deiner Erfahrungen persoenliche Eselsbruecken bauen kannst, um die Bedeutungen besser zu verinnerlichen.')
+con52_text1 = ('Wie du hoeren kannst, stimmt der mittlere Teil des Satzes nicht und das haettest du wissen koennen. Kannst du die Woerter irgendwie mit deinen eigenen Erfahrungen verknuepfen? Vielleicht koenntest du versuchen, Eselsbruecken zu bauen, um sie dir besser zu merken.')
 con52_text2 = ('')
 con52_t11 = 0
 con52_t12 = 0.5
 
-con53_text1 = ('Denk noch einmal darueber nach, was ich gerade gesagt habe, und achte besonders auf das mittlere Wort im Satz. Reflektiere, welche Woerter du noch nicht gut verstanden hast')
+con53_text1 = ('Denk noch einmal darueber nach, was ich gerade gesagt habe, und achte besonders auf das mittlere Wort im Satz. Ueberlege dir, welche Woerter du noch nicht gut verstanden hast.')
 con53_text2 = ('')
 con53_t11 = 0
 con53_t12 = 0.5
 
-con63_text1 = ('Wie du hoeren kannst, ist')
-con63_text2 = ('korrekt. Nur irgendwas passt noch nicht ganz, oder? Du hattest die richtige Idee, aber die Position war nicht ganz korrekt. Versuche, deine vorherigen Schritte vor deinem inneren Auge zu rekapitulieren und reflektiere, welche besonders sinnvoll waren.')
-con63_t11 = 0
-con63_t12 = 0.5
+con54_text1 = ('Wie du hoeren kannst, ist')
+con54_text2 = ('korrekt. Nur irgendwas passt noch nicht ganz, oder? Du haettest es wissen koennen. Denk nochmal ueber deine bisherigen Schritte nach, und ueberlege, welche dir besonders geholfen haben und warum das so war.')
+con54_t11 = 0
+con54_t12 = 0.5
 
 robot_con50 = [[con50_t11, con50_text1, con50_text2, con50_t12], [con51_t11, con51_text1, con51_text2, con51_t12],
-               [con52_t11, con52_text1, con52_text2, con52_t12], [con53_t11, con53_text1, con53_text2, con53_t12]]
+               [con52_t11, con52_text1, con52_text2, con52_t12], [con53_t11, con53_text1, con53_text2, con53_t12],
+               [con54_t11, con54_text1, con54_text2, con54_t12]]
 
 # Preposition and location or repeated placement: different object
 
-con60_text1 = ('Kannst du Parallelen zwischen diesem und einem vorherigen Fehler erkennen? Versuche ein vollstaendiges Bild zu schaffen, indem du die Bedeutungen der verschiedenen Woerter als einzelne Puzzleteile betrachtest und zueinander anordnest.')
+con60_text1 = ('Kannst du Parallelen zwischen diesem und einem vorherigen Fehler erkennen? Denk an die einzelnen Woerter wie an Perlen auf einer Perlenkette. Wie koennten sie anders zusammengefuegt werden, um andere sinnvolle Muster zu ergeben?')
 con60_text2 = ('')
 con60_t11 = 0
 con60_t12 = 0.5
 
-con61_text1 = ('Du hast diese Platzierung schon einmal mit einem anderen Gegenstand versucht. Denke darueber nach, wie du die gehoerten Woerter in Konzepte aus deinem Vorwissen einordnen koenntest, zum Beispiel wenn du sie mit anderen Sprachen vergleichst, die du bereits sprichst.')
+con61_text1 = ('Du hast diese Platzierung bereits zuvor mit einem anderen Gegenstand versucht. Hast du vielleicht schon einmal eine aehnliche Aufgabe in anderen Lernsituationen oder im Alltag gemacht? Probiere mal, ob du bereits vorhandenes Wissen auf die aktuelle Aufgabe anwenden kannst um somit solche Fehler zu vermeiden.')
 con61_text2 = ('')
 con61_t11 = 0
 con61_t12 = 0.5
 
-con62_text1 = ('Dieser Fehler aehnelt einem frueheren, den du mit einem anderen Gegenstand gemacht hast. Ueberlege, welche Fragen fuer dich noch offen sind und welche Bedeutungen deiner Meinung nach noch nicht ausreichend geklaert wurden.')
+con62_text1 = ('Dieser Fehler aehnelt einem frueheren, den du mit einem anderen Gegenstand gemacht hast. ueberlege, welche Fragen fuer dich noch offen sind und welche Bedeutungen deiner Meinung nach noch nicht ausreichend geklaert wurden.')
 con62_text2 = ('')
 con62_t11 = 0
 con62_t12 = 0.5
 
-con63_text1 = ('Du haettest wissen koennen, dass diese Platzierung nicht korrekt ist, da ich dir ihre Bedeutung zuvor bereits gesagt habe. Welche Moeglichkeiten hast du, deine Verstaendnisprobleme zu ueberwinden? Passe dein Vorgehen gegebenenfalls an.')
+con63_text1 = ('Gibt es noch Woerter, deren Bedeutung dir bisher nicht bekannt sind oder die noch nicht ganz klar fuer dich sind? Dieser Fehler aehnelt naemlich einem frueheren, den du mit einem anderen Gegenstand gemacht hast.')
 con63_text2 = ('')
 con63_t11 = 0
 con63_t12 = 0.5
 
-con64_text1 = ('Einen aehnlichen Fehler hast du schonmal gemacht, daher haette dieser vermieden werden koennen. Ueberlege, wieso du Schwierigkeiten hast, die Bedeutung bestimmter Woerter zu verstehen. Welche Strategien kannst du diesbezueglich ausprobieren?')
+con64_text1 = ('Einen aehnlichen Fehler hast du schonmal gemacht, daher haette dieser vermieden werden koennen. Warum denkst du, ist es manchmal schwieriger, bestimmte Woerter zu verstehen als andere? Gibt es etwas, das dir dabei helfen koennte?')
 con64_text2 = ('')
 con64_t11 = 0
 con64_t12 = 0.5
@@ -580,27 +561,27 @@ robot_con60 = [[con60_t11, con60_text1, con60_text2, con60_t12], [con61_t11, con
 
 # repeated placement
 
-con70_text1 = ('Du hast diese Position schon einmal ausprobiert. Achte genau auf die Saetze, die ich dir sage. Welche Kategorien koennten dir helfen, die Woerter logisch zu sortieren? Versuche es.')
+con70_text1 = ('Du hast diese Position schon einmal ausprobiert. ueberleg doch mal: Wie koennte man die einzelnen Woerter in eine logische Struktur bringen? So koenntest du solche Wiederholungsfehler vermeiden.')
 con70_text2 = ('')
 con70_t11 = 0
 con70_t12 = 0.5
 
-con71_text1 = ('Aber ich denke, das solltest du bereits wissen, oder nicht? Merke dir, was ich dir sage und konzentriere dich vor allem auf die fuer dich entscheidenden Elemente aus meinen Aussagen.')
+con71_text1 = ('Aber ich denke, das solltest du bereits wissen, oder nicht? Merke dir, was ich dir sage und schau dir die Beziehungen zwischen den einzelnen Woertern an. Erkennst du eine logische Struktur oder ein Muster?')
 con71_text2 = ('')
 con71_t11 = 0
 con71_t12 = 0.5
 
-con72_text1 = ('Schade, dass dieser Fehler wiederholt aufgetreten ist. Denke ueber Beispiele nach, um das bisher Gelernte zu veranschaulichen oder zu verknuepfen. Das koennte dir moeglicherweise helfen, es besser zu behalten.')
+con72_text1 = ('Schade, dass dieser Fehler wiederholt aufgetreten ist. Denke ueber Beispiele nach, um das bisher Gelernte zu verknuepfen. Wie wuerdest du beispielsweise im Englischunterricht in der Schule vorgehen, um dir Vokabeln besser zu behalten?')
 con72_text2 = ('')
 con72_t11 = 0
 con72_t12 = 0.5
 
-con73_text1 = ('Ich bin mir ziemlich sicher, dass ich dir das schon einmal gesagt habe. Wie kannst du dir dein Verstaendnisproblem am besten erklaeren? Versuche, es zu verstehen.')
+con73_text1 = ('Ich bin mir ziemlich sicher, dass ich dir das schon einmal gesagt habe. Wie kannst du dir dein Verstaendnisproblem am besten erklaeren? ')
 con73_text2 = ('')
 con73_t11 = 0
 con73_t12 = 0.5
 
-con74_text1 = ('Kannst du erkennen, ob es Muster in deinen Handlungen gibt, die dazu fuehren, dass du denselben Fehler wiederholst? Ueberlege, wie du deine Vorgehensweise anpassen koenntest, um die Aufgabe moeglicherweise effizienter zu bewaeltigen.')
+con74_text1 = ('Kannst du erkennen, ob es Muster in deinen Handlungen gibt, die dazu fuehren, dass du denselben Fehler wiederholst? ueberlege, wie du deine Herangehensweise anpassen koenntest, um die Aufgabe moeglicherweise zielfuehrender zu bewaeltigen.')
 con74_text2 = ('')
 con74_t11 = 0
 con74_t12 = 0.5
